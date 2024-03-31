@@ -41,25 +41,23 @@
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(json => {
-        const tableBody = $("#table-id tbody"); // Select the tbody element of the table
+        const tableBody = $("#table-id tbody"); 
 
         json.forEach(user => {
-            // Create a new table row and append user data to it
             const newRow = `
                 <tr>
-                    <td>${user.id}</td>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.address.city}</td>
+                    <td class="box">${user.id}</td>
+                    <td class="box">${user.username}</td>
+                    <td class="box">${user.email}</td>
+                    <td class="table-light">${user.address.city}</td>
                 </tr>
             `;
-            // Append the new row to the table body
             tableBody.append(newRow);
         });
 
-        // Apply styling to the table
         $("#table-id").css({
             "margin": "50px",
             "border": "1px solid black"
         });
+   
     });
